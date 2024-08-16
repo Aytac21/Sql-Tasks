@@ -1,0 +1,38 @@
+Task 3
+
+/* 1 */
+
+CREATE TABLE Salesmen (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name varchar(40),
+    city varchar(40),
+    commission decimal(4)
+);
+
+CREATE TABLE Customers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name varchar(40),
+    city varchar(40),
+    grade int,
+    salesman_id int,
+    Foreign Key (salesman_id) references Salesmen(id) on delete cascade
+);
+
+/* 2 */
+
+SELECT  Customers.name as 'Customer Name', Customers.city, Salesmen.name as Salesman, Salesmen.commission
+FROM Salesmen
+INNER JOIN Customers ON Salesmen.id=Customers.salesman_id;
+
+/* 3 */
+
+SELECT  Customers.name as 'Customer Name', Customers.city, Salesmen.name as Salesman, Salesmen.commission
+FROM Salesmen
+INNER JOIN Customers ON Salesmen.id=Customers.salesman_id
+where Salesmen.commission>0.12;
+
+/* 4 */
+
+SELECT  Salesmen.name as Salesman, Customers.name as 'cust_name', Customers.city
+FROM Salesmen
+INNER JOIN Customers ON Salesmen.city=Customers.city;

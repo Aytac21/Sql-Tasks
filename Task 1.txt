@@ -1,0 +1,21 @@
+Task 1
+CREATE TABLE OrderTable (
+  Id integer PRIMARY KEY auto_increment NOT NULL,
+  OrderNumber varchar(20) NOT NULL unique,
+  OrderDate date NOT NULL,
+  TotalAmount decimal(10,2) NOT NULL,
+  IsCompleted boolean default False,
+  Currency varchar(10) default 'AZN',
+  IsApproved boolean NOT NULL default True
+);
+
+CREATE TABLE Employee (
+  Id integer PRIMARY KEY auto_increment NOT NULL unique,
+  FirstName varchar(50) NOT NULL,
+  LastName varchar(50) NOT NULL,
+  DateOfBirth date NOT NULL,
+  Email varchar(100) NOT NULL,
+  Salary decimal(10,2) NOT NULL,
+  Department varchar(50) NOT NULL,
+  IsManager boolean NOT NULL default False
+);
